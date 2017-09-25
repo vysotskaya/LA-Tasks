@@ -1,0 +1,38 @@
+[
+    [
+        {
+            "value": 72,
+            "description": "Plaintiff"
+        },
+        {
+            "value": 22,
+            "description": "Defendant"
+        },
+        {
+            "value": 6,
+            "description": "Other"
+        }
+    ],
+    [
+        {
+            "value": 15,
+            "description": "Description 1"
+        },
+        {
+            "value": 43,
+            "description": "Description 2"
+        },
+        {
+            "value": 12,
+            "description": "Description 3"
+        },
+        {
+            "value": 9,
+            "description": "Description 4"
+        },
+        {
+            "value": 36,
+            "description": "Description 5"
+        }
+    ]
+]

@@ -7,7 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var data_row_component_1 = require("./data-row.component");
+var data_rows_component_1 = require("./data-rows.component");
+var data_service_1 = require("./data.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -15,8 +19,18 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            data_row_component_1.DataRowComponent,
+            data_rows_component_1.DataRowsComponent
+        ],
+        providers: [
+            data_service_1.DataService
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
