@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ViewController } from './view-controller';
 import { Data } from './data.model';
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
     selector: 'data-rows',
@@ -9,9 +10,10 @@ import { Data } from './data.model';
     providers:[ViewController]   
 })
 
-export class DataRowsComponent implements OnInit {
+export class DataRowsComponent implements OnInit, OnDestroy {
 
     dataRows: Data[];
+    private sub: Subscription;
 
     constructor(private controller: ViewController){}
 
@@ -19,10 +21,13 @@ export class DataRowsComponent implements OnInit {
         this.getData();
     }
 
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
     getData() {
-        this.controller.getData().subscribe(
-            data => this.dataRows = this.controller.modifyData(data)
-        );
+        this.controller.getData();
+        this.sub = this.controller.modifiedDataSubject.subscribe(data => this.dataRows = data);
     }
 
     updateData() {

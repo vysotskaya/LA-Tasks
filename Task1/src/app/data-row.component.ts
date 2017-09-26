@@ -22,12 +22,13 @@ export class DataRowComponent implements OnChanges {
     }
 
     updateStyle() {
-        if(this.data){
-            let whiteValue = 100 - this.data.value;
-            let gradientValue = this.data.value > 50 
-                ? "linear-gradient(to right, #7ac " + this.data.value + "%, #fff " + whiteValue + "%)"
-                : "linear-gradient(to left, #fff " + whiteValue + "%, #7ac " + this.data.value + "%)";
-            this.styleObject.background = gradientValue;
-        }        
+        if(! this.data) { 
+            return; 
+        }
+        let whiteValue = 100 - this.data.value;
+        let gradientValue = this.data.value > 50 
+            ? "linear-gradient(to right, #7ac " + this.data.value + "%, #fff " + whiteValue + "%)"
+            : "linear-gradient(to left, #fff " + whiteValue + "%, #7ac " + this.data.value + "%)";
+        this.styleObject.background = gradientValue;       
     }
 }

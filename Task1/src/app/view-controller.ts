@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 
 import { DataService } from './data.service';
 import { Data } from './data.model';
@@ -8,13 +8,17 @@ import { Data } from './data.model';
 export class ViewController {
     constructor(private dataService: DataService) { }
 
-    //modifiedData: Observable<Data[]>;
+    modifiedDataSubject: Subject<Data[]> = new Subject<Data[]>();
 
     getData() {
-        return this.dataService.getData();
+        return this.dataService.getData().subscribe(
+            data => {
+                let modified: Data[] = this.modifyData(data);
+                this.modifiedDataSubject.next(modified);
+            });
     }
 
-    modifyData(data: Array<Data[]>) {
+    private modifyData(data: Array<Data[]>): Data[] {
         let randomDataIndex = Math.floor(Math.random() * data.length);
         let modifiedData = new Array<Data>();
         let sumOfValues = 0;

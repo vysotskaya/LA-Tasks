@@ -17,9 +17,13 @@ var DataRowsComponent = (function () {
     DataRowsComponent.prototype.ngOnInit = function () {
         this.getData();
     };
+    DataRowsComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
     DataRowsComponent.prototype.getData = function () {
         var _this = this;
-        this.controller.getData().subscribe(function (data) { return _this.dataRows = _this.controller.modifyData(data); });
+        this.controller.getData();
+        this.sub = this.controller.modifiedDataSubject.subscribe(function (data) { return _this.dataRows = data; });
     };
     DataRowsComponent.prototype.updateData = function () {
         this.getData();

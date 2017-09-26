@@ -9,14 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var Rx_1 = require("rxjs/Rx");
 var data_service_1 = require("./data.service");
 var ViewController = (function () {
     function ViewController(dataService) {
         this.dataService = dataService;
+        this.modifiedDataSubject = new Rx_1.Subject();
     }
-    //modifiedData: Observable<Data[]>;
     ViewController.prototype.getData = function () {
-        return this.dataService.getData();
+        var _this = this;
+        return this.dataService.getData().subscribe(function (data) {
+            var modified = _this.modifyData(data);
+            _this.modifiedDataSubject.next(modified);
+        });
     };
     ViewController.prototype.modifyData = function (data) {
         var randomDataIndex = Math.floor(Math.random() * data.length);

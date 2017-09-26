@@ -22,13 +22,14 @@ var DataRowComponent = (function () {
         this.updateStyle();
     };
     DataRowComponent.prototype.updateStyle = function () {
-        if (this.data) {
-            var whiteValue = 100 - this.data.value;
-            var gradientValue = this.data.value > 50
-                ? "linear-gradient(to right, #7ac " + this.data.value + "%, #fff " + whiteValue + "%)"
-                : "linear-gradient(to left, #fff " + whiteValue + "%, #7ac " + this.data.value + "%)";
-            this.styleObject.background = gradientValue;
+        if (!this.data) {
+            return;
         }
+        var whiteValue = 100 - this.data.value;
+        var gradientValue = this.data.value > 50
+            ? "linear-gradient(to right, #7ac " + this.data.value + "%, #fff " + whiteValue + "%)"
+            : "linear-gradient(to left, #fff " + whiteValue + "%, #7ac " + this.data.value + "%)";
+        this.styleObject.background = gradientValue;
     };
     return DataRowComponent;
 }());
