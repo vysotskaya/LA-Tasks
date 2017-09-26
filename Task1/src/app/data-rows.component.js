@@ -15,11 +15,14 @@ var DataRowsComponent = (function () {
         this.controller = controller;
     }
     DataRowsComponent.prototype.ngOnInit = function () {
-        var temp = this.getData();
-        this.dataRows = [temp];
+        this.getData();
     };
     DataRowsComponent.prototype.getData = function () {
-        return this.controller.getModifiedData();
+        var _this = this;
+        this.controller.getData().subscribe(function (data) { return _this.dataRows = _this.controller.modifyData(data); });
+    };
+    DataRowsComponent.prototype.updateData = function () {
+        this.getData();
     };
     return DataRowsComponent;
 }());

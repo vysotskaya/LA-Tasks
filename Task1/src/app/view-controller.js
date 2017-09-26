@@ -14,10 +14,25 @@ var ViewController = (function () {
     function ViewController(dataService) {
         this.dataService = dataService;
     }
-    ViewController.prototype.getModifiedData = function () {
-        var recievedData = [];
-        this.dataService.getData().subscribe(function (data) { return recievedData = data; });
-        return { value: 6, description: 'qwerty' };
+    //modifiedData: Observable<Data[]>;
+    ViewController.prototype.getData = function () {
+        return this.dataService.getData();
+    };
+    ViewController.prototype.modifyData = function (data) {
+        var randomDataIndex = Math.floor(Math.random() * data.length);
+        var modifiedData = new Array();
+        var sumOfValues = 0;
+        data[randomDataIndex].forEach(function (item) {
+            sumOfValues += item.value;
+        });
+        for (var _i = 0, _a = data[randomDataIndex]; _i < _a.length; _i++) {
+            var entry = _a[_i];
+            modifiedData.push({
+                value: Math.round(entry.value * 100 / sumOfValues),
+                description: entry.description
+            });
+        }
+        return modifiedData;
     };
     return ViewController;
 }());

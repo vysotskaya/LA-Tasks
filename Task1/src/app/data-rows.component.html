@@ -1,5 +1,5 @@
 <ul>
     <li *ngFor="let item of dataRows">
-        <data-row [data]="item"></data-row>
+        <data-row [data]="item" (click)="updateData()"></data-row>
     </li>
 </ul>

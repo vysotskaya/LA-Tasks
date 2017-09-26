@@ -1,5 +1,5 @@
 .line {
-    background: linear-gradient(to right, #7ac 65%, #fff 35%);
+    /* background: linear-gradient(to right, #7ac 65%, #fff 35%); */
     width:600px;
     height:10px;
     border: solid 1px black;

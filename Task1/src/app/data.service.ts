@@ -8,8 +8,9 @@ export class DataService {
     constructor(private http: Http) { }
 
     getData() {
-        var temp = this.http.get('app/data.json')
-            .map((res: Response) => res.json())
-        return temp;
+        return this.http.get('app/data.json')
+            .map(
+                (res: Response) => res.json()
+            );
     }
 }

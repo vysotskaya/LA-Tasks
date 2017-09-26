@@ -16,9 +16,8 @@ var DataService = (function () {
         this.http = http;
     }
     DataService.prototype.getData = function () {
-        var temp = this.http.get('app/data.json')
+        return this.http.get('app/data.json')
             .map(function (res) { return res.json(); });
-        return temp;
     };
     return DataService;
 }());

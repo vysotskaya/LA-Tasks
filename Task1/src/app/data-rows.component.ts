@@ -16,11 +16,16 @@ export class DataRowsComponent implements OnInit {
     constructor(private controller: ViewController){}
 
     ngOnInit(): void {
-        let temp = this.getData();
-        this.dataRows = [temp];
+        this.getData();
     }
 
-    getData(): any {
-        return this.controller.getModifiedData();
+    getData() {
+        this.controller.getData().subscribe(
+            data => this.dataRows = this.controller.modifyData(data)
+        );
+    }
+
+    updateData() {
+        this.getData();
     }
 }
