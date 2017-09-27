@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-top-color: #808080;
+    border-top-style: solid;
+    border-top-width:2px;
+}
+
+td, th, caption {
+    text-align: left;
+    padding: 6px;
+}
+
+caption {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.value {
+    text-align: center;
+}

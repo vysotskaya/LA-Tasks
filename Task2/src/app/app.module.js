@@ -7,7 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var motions_component_1 = require("./motions.component");
+var motion_table_component_1 = require("./motion-table.component");
+var chart_component_1 = require("./chart.component");
+var table_data_controller_1 = require("./table-data-controller");
+var details_component_1 = require("./details.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -15,8 +21,18 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            motions_component_1.MotionsComponent,
+            motion_table_component_1.MotionTableComponent,
+            chart_component_1.ChartComponent,
+            details_component_1.DetailsComponent
+        ],
+        providers: [table_data_controller_1.TableDataController],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

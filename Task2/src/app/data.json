@@ -1,0 +1,60 @@
+[
+    {
+        "caption": "Top 5 Motion Types",
+        "data":
+        [
+            {
+                "value": 53,
+                "description": "Prisoner Rights"
+            },
+            {
+                "value": 34,
+                "description": "Other"
+            },
+            {
+                "value": 10,
+                "description": "Civil Rights"
+            },
+            {
+                "value": 7,
+                "description": "Banking/Finance"
+            },
+            {
+                "value": 6,
+                "description": "Labor/Employment"
+            }
+        ]
+    },
+    {
+        "caption": "Motions",
+        "headers": 
+        [
+            "Top 5 Motion Types",
+            "",
+            "Percentage Granted"
+        ],
+        "data":
+        [
+            {
+                "value": 53,
+                "description": "Dismiss (non-voluntary)"
+            },
+            {
+                "value": 34,
+                "description": "Summary Judgment"
+            },
+            {
+                "value": 10,
+                "description": "In Lim"
+            },
+            {
+                "value": 7,
+                "description": "Temp. Restraining Order"
+            },
+            {
+                "value": 6,
+                "description": "Remand"
+            }
+        ]
+    }
+]
