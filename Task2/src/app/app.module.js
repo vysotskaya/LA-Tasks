@@ -14,6 +14,7 @@ var motion_table_component_1 = require("./motion-table.component");
 var chart_component_1 = require("./chart.component");
 var table_data_controller_1 = require("./table-data-controller");
 var details_component_1 = require("./details.component");
+var modal_dialog_component_1 = require("./modal-dialog.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,7 +31,8 @@ AppModule = __decorate([
             motions_component_1.MotionsComponent,
             motion_table_component_1.MotionTableComponent,
             chart_component_1.ChartComponent,
-            details_component_1.DetailsComponent
+            details_component_1.DetailsComponent,
+            modal_dialog_component_1.ModalDialogComponent
         ],
         providers: [table_data_controller_1.TableDataController],
         bootstrap: [app_component_1.AppComponent]

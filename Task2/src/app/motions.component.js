@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var MotionsComponent = (function () {
     function MotionsComponent(controller) {
         this.controller = controller;
+        this.dataForDelailsEvent = new core_1.EventEmitter();
     }
     MotionsComponent.prototype.ngOnInit = function () {
         this.getTablesData();
@@ -23,13 +24,17 @@ var MotionsComponent = (function () {
             .subscribe(function (data) { return _this.tablesData = data; });
     };
     MotionsComponent.prototype.handleDetails = function (data) {
-        this.dataDetails = data;
+        this.dataForDelailsEvent.emit(data);
     };
     MotionsComponent.prototype.ngOnDestroy = function () {
         this.subscriptionObject.unsubscribe();
     };
     return MotionsComponent;
 }());
+__decorate([
+    core_1.Output('dataForModalWindow'),
+    __metadata("design:type", core_1.EventEmitter)
+], MotionsComponent.prototype, "dataForDelailsEvent", void 0);
 MotionsComponent = __decorate([
     core_1.Component({
         selector: 'motions',

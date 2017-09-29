@@ -7,7 +7,8 @@ import { MotionsComponent } from './motions.component';
 import { MotionTableComponent } from './motion-table.component';
 import { ChartComponent } from './chart.component';
 import { TableDataController } from './table-data-controller';
-import { DetailsComponent } from './details.component'
+import { DetailsComponent } from './details.component';
+import { ModalDialogComponent } from './modal-dialog.component';
 
 @NgModule({
   imports:      [ 
@@ -19,7 +20,8 @@ import { DetailsComponent } from './details.component'
     MotionsComponent,
     MotionTableComponent,
     ChartComponent,
-    DetailsComponent 
+    DetailsComponent,
+    ModalDialogComponent 
   ],
   providers:[ TableDataController ],
   bootstrap:    [ AppComponent ]

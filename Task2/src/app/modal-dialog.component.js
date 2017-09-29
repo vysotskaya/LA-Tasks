@@ -9,29 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var MotionTableComponent = (function () {
-    function MotionTableComponent() {
-        this.dataForDetailsEvent = new core_1.EventEmitter();
+var ModalDialogComponent = (function () {
+    function ModalDialogComponent() {
+        this.visibility = false;
     }
-    MotionTableComponent.prototype.showDetails = function (data) {
-        this.dataForDetailsEvent.emit(data);
+    ModalDialogComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.data.firstChange) {
+            return;
+        }
+        this.visibility = !this.visibility;
     };
-    return MotionTableComponent;
+    ModalDialogComponent.prototype.closeModal = function () {
+        this.visibility = false;
+    };
+    return ModalDialogComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], MotionTableComponent.prototype, "tableData", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], MotionTableComponent.prototype, "dataForDetailsEvent", void 0);
-MotionTableComponent = __decorate([
+], ModalDialogComponent.prototype, "data", void 0);
+ModalDialogComponent = __decorate([
     core_1.Component({
-        selector: 'motion-table',
-        templateUrl: './motion-table.component.html',
-        styleUrls: ['./motion-table.component.css']
+        selector: 'modal-dialog',
+        templateUrl: './modal-dialog.component.html',
+        styleUrls: ['./modal-dialog.component.css']
     })
-], MotionTableComponent);
-exports.MotionTableComponent = MotionTableComponent;
-//# sourceMappingURL=motion-table.component.js.map
+], ModalDialogComponent);
+exports.ModalDialogComponent = ModalDialogComponent;
+//# sourceMappingURL=modal-dialog.component.js.map

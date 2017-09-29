@@ -10,7 +10,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 export class MotionTableComponent  {
     @Input() tableData: TableData;
-    @Output() dataForDetailsEvent = new EventEmitter();
+    @Output() dataForDetailsEvent: EventEmitter<Data> = new EventEmitter();
 
     showDetails(data: Data): void {
         this.dataForDetailsEvent.emit(data);

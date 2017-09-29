@@ -1,7 +1,14 @@
+import { Data } from './data.model';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<motions></motions>`,
+  templateUrl: './app.component.html',
 })
-export class AppComponent  { }
+export class AppComponent  {
+  dataDetails: Data;
+
+  showModal(data: Data) {
+    this.dataDetails = data;
+  }
+}

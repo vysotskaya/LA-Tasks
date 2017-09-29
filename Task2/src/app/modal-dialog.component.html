@@ -1,0 +1,12 @@
+<div *ngIf="data" class="modal_form" [style.display]="visibility==true?'block':'none'">
+    <div class="modal-header">        
+        <h4>Details</h4><span class="modal_close" (click)="closeModal()">X</span>
+    </div>
+    <p>
+        Description: {{data.description}}
+    </p>
+    <p>
+        Value: {{data.value}}
+    </p>   
+</div>
+<div class="overlay" [style.display]="visibility==true?'block':'none'" (click)="closeModal()"></div>

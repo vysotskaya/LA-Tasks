@@ -1,7 +1,7 @@
 import { Data } from './data.model';
 import { TableDataController } from './table-data-controller';
 import { TableData } from './table-data.model';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -13,6 +13,8 @@ export class MotionsComponent implements OnInit, OnDestroy  {
     tablesData: TableData[];
     private subscriptionObject: Subscription;
     dataDetails: Data;
+
+    @Output('dataForModalWindow') dataForDelailsEvent: EventEmitter<Data> = new EventEmitter<Data>();
 
     constructor(private controller: TableDataController){}
     
@@ -27,8 +29,8 @@ export class MotionsComponent implements OnInit, OnDestroy  {
             )
     }
 
-    handleDetails(data: any): void {
-        this.dataDetails = data;
+    handleDetails(data: Data): void {
+        this.dataForDelailsEvent.emit(data);
     }
 
     ngOnDestroy(): void {
