@@ -9,11 +9,24 @@ import { ChartComponent } from './chart.component';
 import { TableDataController } from './table-data-controller';
 import { DetailsComponent } from './details.component';
 import { ModalDialogComponent } from './modal-dialog.component';
+import { CircleChartsComponent } from './circle-charts.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'tables', component: MotionsComponent },
+  { path: 'charts', component: CircleChartsComponent },
+  {
+    path: '',
+    redirectTo: '/tables',
+    pathMatch: 'full'
+  },
+];
 
 @NgModule({
   imports:      [ 
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [ 
     AppComponent,
@@ -21,7 +34,8 @@ import { ModalDialogComponent } from './modal-dialog.component';
     MotionTableComponent,
     ChartComponent,
     DetailsComponent,
-    ModalDialogComponent 
+    ModalDialogComponent,
+    CircleChartsComponent 
   ],
   providers:[ TableDataController ],
   bootstrap:    [ AppComponent ]

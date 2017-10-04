@@ -15,6 +15,17 @@ var chart_component_1 = require("./chart.component");
 var table_data_controller_1 = require("./table-data-controller");
 var details_component_1 = require("./details.component");
 var modal_dialog_component_1 = require("./modal-dialog.component");
+var circle_charts_component_1 = require("./circle-charts.component");
+var router_1 = require("@angular/router");
+var appRoutes = [
+    { path: 'tables', component: motions_component_1.MotionsComponent },
+    { path: 'charts', component: circle_charts_component_1.CircleChartsComponent },
+    {
+        path: '',
+        redirectTo: '/tables',
+        pathMatch: 'full'
+    },
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +35,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            router_1.RouterModule.forRoot(appRoutes)
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -32,7 +44,8 @@ AppModule = __decorate([
             motion_table_component_1.MotionTableComponent,
             chart_component_1.ChartComponent,
             details_component_1.DetailsComponent,
-            modal_dialog_component_1.ModalDialogComponent
+            modal_dialog_component_1.ModalDialogComponent,
+            circle_charts_component_1.CircleChartsComponent
         ],
         providers: [table_data_controller_1.TableDataController],
         bootstrap: [app_component_1.AppComponent]

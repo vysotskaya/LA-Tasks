@@ -13,8 +13,10 @@ export class MotionsComponent implements OnInit, OnDestroy  {
     tablesData: TableData[];
     private subscriptionObject: Subscription;
     dataDetails: Data;
-
-    @Output('dataForModalWindow') dataForDelailsEvent: EventEmitter<Data> = new EventEmitter<Data>();
+    
+    showModal(data: Data) {
+        this.dataDetails = data;
+    }
 
     constructor(private controller: TableDataController){}
     
@@ -27,10 +29,6 @@ export class MotionsComponent implements OnInit, OnDestroy  {
             .subscribe(
                 data => this.tablesData = data
             )
-    }
-
-    handleDetails(data: Data): void {
-        this.dataForDelailsEvent.emit(data);
     }
 
     ngOnDestroy(): void {
